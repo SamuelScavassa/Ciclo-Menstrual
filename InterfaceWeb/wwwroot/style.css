@@ -1,0 +1,135 @@
+main {  
+    display: flex;
+    flex-direction: column;
+    margin: 5% 25% 10%;
+    color: white;
+    font-family: 'Oxygen', sans-serif;
+    
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a :hover {
+    text-decoration: none;
+    color: black;
+}
+.btn-add {
+    font-family: 'Oxygen', sans-serif;
+    font-size: larger;
+    border: 0px;
+    border-radius: 8px;
+    background-color: darkred;
+    color: white;
+    text-size-adjust: 50%;
+    height: 35px;
+    width: 100px;
+    margin: 10%;
+
+}
+
+.div-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.form__field {
+    margin: 10px;
+    padding: auto;
+    width: 100%;
+    background-color: plum;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-style: dashed;
+    border-color: white;
+    font-family: 'Oxygen', sans-serif;
+    font-size: larger;
+    opacity: 50%;
+}
+
+
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.baixo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.cadastro :hover{
+    color: black;
+}
+
+.saudacao {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.btn-add {
+    font-family: 'Oxygen', sans-serif;
+    font-size: larger;
+    border: 0px;
+    border-radius: 8px;
+    background-color: darkred;
+    color: white;
+    text-size-adjust: 50%;
+    height: 35px;
+    width: 100px;
+    margin: 10%;
+
+}
+
+.div-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.inputs{
+    font-size: 1.5em;
+    padding: 5px;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    padding: 5px;
+}
+
+.data {
+    color: darkred;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px;
+    border-color: darkred;
+    border-style: dashed;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.usr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}

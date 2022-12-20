@@ -1,0 +1,65 @@
+@page "/interface"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+@if (Index.log)
+{
+    <main>
+        <div class="usr">
+        <h1>@Index.Usuario.Nome</h1>
+        </div>
+        <div class="conteudo">
+            <h2>Próxima mestruação: <span class="data"></span></h2> 
+            <h2><a href="">Ultima mestruação: <span class="data">@Ultima.Inicio.ToString("dd/mm/yyyy")</span></a></h2>
+
+            <h2>Fluxo padrão: <span class="data">@Fluxo</span></h2>
+
+            <h2>Lista das <a><span class="data">minhas mestruações</span></a></h2>
+        </div>
+    <div class="div-btn">
+        <button class="btn-add" onclick="@cadastro">Mestruei</button>
+    </div>
+    </main>
+}
+else
+{
+    <h1>Fazer login!!</h1>
+}
+
+
+@code{
+
+    public static List<Index.Mestruacao> Mestruacaos = new List<Index.Mestruacao>();
+    public Index.Mestruacao Ultima; 
+
+    public DateTime Proxima {get; set;}
+    public string Fluxo {get; set;} = "Inconclusivo";
+
+    protected override async Task OnInitializedAsync()
+    {
+        Mestruacaos = await Http.GetFromJsonAsync<List<Index.Mestruacao>>($"/mestruacao/{Index.Usuario.UserId}");
+        Ultima = Mestruacaos.Last();
+        
+        int y = (from x in Mestruacaos select x.MestruacaoId).Count();
+        int z = (from x in Mestruacaos select x.Fluxo).Sum();
+        int w = z/y;
+        if (w > 0 && w <= 1)
+        {
+            Fluxo = "Baixo";
+        }
+        else{
+            if (w > 1 && w <= 2){
+            Fluxo = "Médio";
+            }
+            else{
+                Fluxo = "Alto";
+            }
+        }    
+    }    
+
+    public void cadastro()
+    {
+        Nav.NavigateTo("/add");
+    }
+
+}

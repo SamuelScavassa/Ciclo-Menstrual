@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Nav
+
+@if (Pages.Index.log == true)
+{
+  <header>
+    <div class="navbar">
+      <a href="#">Início</a>
+      <a href="">@Pages.Index.Usuario.Nome</a>
+      <a href="">Minha Lista</a>
+    </div>
+  </header>
+}
+
+  
+
+<article class="content px-4">
+  @Body
+</article>

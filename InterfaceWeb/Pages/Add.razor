@@ -1,0 +1,55 @@
+@page "/add"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<main>
+        <div class="titulo">
+            <h1>Adcione uma nova mestruação 👩</h1>
+        </div>
+
+        <div>
+            <form action="" class="form-group">
+
+                <div class="inputs">
+                    <label for="">Início</label>
+                    <input type="date" class="form__field">
+
+                    <label for="">Fim</label>
+                    <input type="date" class="form__field">
+
+                    <label for="">Fluxo (1 - leve / 2 - médio / 3 - forte) </label>
+                    <input type="number" class="form__field">
+
+                    <label for="">Observação</label>
+                    <input type="text" class="form__field">
+                </div>
+
+                <div class="div-btn">
+                    <button class="btn-add" @onclick="cadastrar">Adcionar</button>
+                </div>
+            </form>
+        </div>
+</main>
+
+@code{
+
+    public DateTime Inicio { get; set; }
+    public DateTime Fim { get; set; }
+    public int Fluxo { get; set; }
+    public string Observacao { get; set;}
+
+    public async void cadastrar()
+    {
+        var x = new Index.Mestruacao{
+            MestruacaoId = 0,
+            UserId = Index.Usuario.UserId,
+            Inicio = Inicio,
+            Fim = Fim,
+            Observacao = Observacao
+        };
+
+        Http.PostAsJsonAsync<Index.Mestruacao>("/mestruacao", x);
+        Nav.NavigateTo("/lista");
+    }
+
+}

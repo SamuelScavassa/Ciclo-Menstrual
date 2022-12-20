@@ -1,0 +1,51 @@
+@page "/cadastro"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+
+
+<main>
+
+        <form class="form-group">
+            <h2 class="titulo">Cadastro </h2>
+            <div class="inputs">
+                <label>Nome</label>
+                <input @bind="Name" class="form__field" type="text"/>
+           
+
+           
+                <label>Email</label>
+                <input @bind="Email" class="form__field" type="email"/>
+          
+
+            
+                <label>Password</label>
+                <input @bind="Password" class="form__field" type="password" />
+            </div>
+
+            <div class="div-btn">
+            <button class="btn-add" @onclick="Save">Salvar</button>
+            </div>
+        </form>
+</main>
+
+@code{
+    protected string Name { get; set; }
+    protected string Email { get; set; }
+    protected string Password { get; set; }
+
+     private async void Save()
+    {
+
+        var cliente = new Index.User
+        {
+            UserId = 0,
+            Nome = Name,
+            Email = Email,
+            Senha = Password
+        };
+
+        Http.PostAsJsonAsync<Index.User>("/user", cliente);
+        Navigation.NavigateTo("/");
+    }
+}

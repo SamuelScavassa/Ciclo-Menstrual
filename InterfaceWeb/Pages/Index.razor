@@ -1,0 +1,91 @@
+﻿@page "/"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+
+<link rel="stylesheet" href="Index.razor.css">
+
+<main>
+        <div class="saudacao">
+        <h1>Bem-vinda!</h1>
+        <h3>O seu aplicativo de controle de fluxo mestrual. Sinta-se em casa 🥰</h3>
+        </div>
+        <br>
+        <div class="form-group">
+            <form action="" >
+                <label>Usuário</label>
+                <br>
+                <input type="email" class="form__field" placeholder="Nome de usuário" @bind="_Email">
+
+                <br>
+                <br>
+
+                <label>Senha</label>
+                <br>
+                <input type="password" class="form__field" placeholder="Password" @bind="_Senha">
+
+                <br>
+                <div class="baixo">
+                    <button class="btn-add" @onclick="login">Login</button>
+                    <p>Ainda não se cadastrou? Não perca mais tempo! <a href="/cadastro" class="cadastro">Clique aqui ❤</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+@code {
+    public string _Email { get; set; }
+    public string _Senha { get; set; }
+    public static User Usuario { get; set; } 
+    public List<User> Lista { get; set; } = new List<User>();
+    public static bool log {get;set;} 
+ 
+    protected override async Task OnInitializedAsync()
+    {
+        Lista = await Http.GetFromJsonAsync<List<User>>("/user");
+    }
+    public void login()
+    {
+        foreach (var usr in Lista)
+        {
+            if (usr.Email == _Email && usr.Senha == _Senha)
+            {
+                Usuario = usr;
+                log = true;
+            }
+            else{
+                log = false;
+            }
+        }
+        
+        if(log){
+            Nav.NavigateTo("/interface");
+        }
+        else{
+            Nav.NavigateTo("/cadastro");
+        }
+    }
+
+
+
+    public class User
+    {
+        public int UserId { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+    }
+
+    public class Mestruacao
+    {
+        public int MestruacaoId { get; set; }
+        public int UserId { get; set; }
+        public DateTime Inicio { get; set; }
+        public DateTime? Fim { get; set; }
+        public int Fluxo { get; set; }
+        public string? Observacao { get; set;}
+
+    }
+
+}
+

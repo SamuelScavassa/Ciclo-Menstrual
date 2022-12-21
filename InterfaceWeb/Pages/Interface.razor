@@ -1,12 +1,11 @@
-@page "/interface"
+@page "/home"
 @inject HttpClient Http
 @inject NavigationManager Nav
 
-@if (Index.log)
-{
+
     <main>
         <div class="usr">
-        <h1>@Index.Usuario.Nome</h1>
+        <h1>@Index.Logado.Nome</h1>
         </div>
         <div class="conteudo">
             <h2>Próxima mestruação: <span class="data"></span></h2> 
@@ -14,32 +13,32 @@
 
             <h2>Fluxo padrão: <span class="data">@Fluxo</span></h2>
 
-            <h2>Lista das <a><span class="data">minhas mestruações</span></a></h2>
+            <h2>Lista das <a href="/lista"><span class="data">minhas mestruações</span></a></h2>
         </div>
     <div class="div-btn">
         <button class="btn-add" onclick="@cadastro">Mestruei</button>
     </div>
     </main>
-}
-else
-{
-    <h1>Fazer login!!</h1>
-}
+
 
 
 @code{
 
     public static List<Index.Mestruacao> Mestruacaos = new List<Index.Mestruacao>();
-    public Index.Mestruacao Ultima; 
-
+    public Index.Mestruacao Ultima = new Index.Mestruacao();
     public DateTime Proxima {get; set;}
     public string Fluxo {get; set;} = "Inconclusivo";
 
     protected override async Task OnInitializedAsync()
     {
-        Mestruacaos = await Http.GetFromJsonAsync<List<Index.Mestruacao>>($"/mestruacao/{Index.Usuario.UserId}");
+        Mestruacaos = await Http.GetFromJsonAsync<List<Index.Mestruacao>>($"/mestruacao/{Index.Logado.UserId}");
+
         Ultima = Mestruacaos.Last();
-        
+        CalcFluxo();
+    }
+
+    public void CalcFluxo()
+    {
         int y = (from x in Mestruacaos select x.MestruacaoId).Count();
         int z = (from x in Mestruacaos select x.Fluxo).Sum();
         int w = z/y;
@@ -56,6 +55,12 @@ else
             }
         }    
     }    
+    
+    public void proxima()
+    {
+        string x = Ultima.Fim.ToString();
+        
+    }
 
     public void cadastro()
     {

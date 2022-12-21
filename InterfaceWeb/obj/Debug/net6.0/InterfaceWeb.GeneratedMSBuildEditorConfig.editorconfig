@@ -38,6 +38,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW50ZXJmYWNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/Pages/Lista.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/Pages/Mestruacao.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVzdHJ1YWNhby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/Pages/User.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

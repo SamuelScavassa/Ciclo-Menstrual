@@ -36,16 +36,29 @@
 
      private async void Save()
     {
-
-        var cliente = new Index.User
+        bool x = true;
+        foreach (var item in Index.Lista)
         {
-            UserId = 0,
-            Nome = Name,
-            Email = Email,
-            Senha = Password
-        };
+            if (item.Email == Email)
+            {
+                x = false;
+            }
+        }
+        if(x){
+            var cliente = new Index.User
+            {
+                UserId = 0,
+                Nome = Name,
+                Email = Email,
+                Senha = Password
+            };
 
-        Http.PostAsJsonAsync<Index.User>("/user", cliente);
-        Navigation.NavigateTo("/");
+            Http.PostAsJsonAsync<Index.User>("/user", cliente);
+            Navigation.NavigateTo("/");
+        }
+        else{
+            Navigation.NavigateTo("/cadastro", forceLoad: true);
+        }
+        
     }
 }

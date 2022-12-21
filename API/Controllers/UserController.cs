@@ -19,9 +19,16 @@ public class UserController: ControllerBase
     
 
     [HttpGet]
-    public ActionResult List()
+    public ActionResult Read()
     {
         return Ok(db.Users.ToList());     
+    }
+
+    [HttpGet]
+    [Route("{id}")]
+    public ActionResult Read(int id)
+    {
+        return Ok(db.Users.FirstOrDefault(x => x.UserId == id));     
     }
 
     [HttpPost]

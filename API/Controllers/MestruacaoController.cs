@@ -35,6 +35,19 @@ public class MestruacaoController: ControllerBase
         return Ok(Mes.ToList());
     }
 
+    [HttpGet]
+    [Route("/mes/{id}")]
+    public ActionResult Mestruacao(int id)
+    {
+        foreach (var item in db.Mestruacoes)
+        {
+            if(item.MestruacaoId == id){
+                return Ok(item);
+            } 
+        }
+        return NotFound();
+    }
+
     [HttpPost]
     public ActionResult Create(Mestruacao mestruacao)
     {

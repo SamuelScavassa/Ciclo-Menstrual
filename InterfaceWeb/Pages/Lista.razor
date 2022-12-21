@@ -1,0 +1,33 @@
+@page "/lista"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+
+<main>
+
+<div class="usr">
+        <h1>Suas mestruações</h1>
+        </div>
+        <div class="divtabela">
+            <table>
+                @foreach (var item in Mestruacaos)
+                {
+                    <tr class="tabelaLinha">
+                        <td>Início: <span class="data">@item.Inicio.ToString("mm/dd/yyyy")</span></td>
+                        <td>Fluxo: <span class="data">@item.Fluxo</span></td>
+                        <td><a href="/mes/@item.MestruacaoId" class="">Ver</a></td>
+                    </tr>      
+                }
+            </table>
+        </div> 
+</main>
+
+@code {
+
+    public  List<Index.Mestruacao> Mestruacaos = new List<Index.Mestruacao>();
+    protected override async Task OnInitializedAsync()
+    {
+        Mestruacaos = await Http.GetFromJsonAsync<List<Index.Mestruacao>>($"/mestruacao/{Index.Logado.UserId}");
+    }
+}
+

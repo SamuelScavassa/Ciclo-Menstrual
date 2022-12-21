@@ -15,14 +15,14 @@
             <form action="" >
                 <label>Usuário</label>
                 <br>
-                <input type="email" class="form__field" placeholder="Nome de usuário" @bind="_Email">
+                <input type="email" class="form__field" placeholder="Nome de usuário" @bind="Email">
 
                 <br>
                 <br>
 
                 <label>Senha</label>
                 <br>
-                <input type="password" class="form__field" placeholder="Password" @bind="_Senha">
+                <input type="password" class="form__field" placeholder="Password" @bind="Senha">
 
                 <br>
                 <div class="baixo">
@@ -34,10 +34,10 @@
     </main>
 
 @code {
-    public string _Email { get; set; }
-    public string _Senha { get; set; }
-    public static User Usuario { get; set; } 
-    public List<User> Lista { get; set; } = new List<User>();
+    public string Email { get; set; }
+    public string Senha { get; set; }
+    public static User Logado { get; set; } 
+    public static List<User> Lista { get; set; } 
     public static bool log {get;set;} 
  
     protected override async Task OnInitializedAsync()
@@ -48,9 +48,9 @@
     {
         foreach (var usr in Lista)
         {
-            if (usr.Email == _Email && usr.Senha == _Senha)
+            if (usr.Email == Email && usr.Senha == Senha)
             {
-                Usuario = usr;
+                Logado = usr;
                 log = true;
             }
             else{
@@ -58,12 +58,14 @@
             }
         }
         
-        if(log){
-            Nav.NavigateTo("/interface");
-        }
-        else{
+        if(log == false){
             Nav.NavigateTo("/cadastro");
         }
+        else{
+            Nav.NavigateTo("/home");
+        }
+
+        
     }
 
 

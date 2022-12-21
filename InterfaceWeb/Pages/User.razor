@@ -1,0 +1,30 @@
+@page "/user"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+
+<main>
+
+<div class="cont">
+        <h1>Obrigado por estar conosco❤️</h1>
+        <h1>User: @Usr.Nome</h1>
+        <h1>Email: @Usr.Email</h1>
+
+        <button class="btn-add" @onclick="logout">Sair</button>
+</div>
+        
+</main>
+
+@code {
+
+    public Index.User Usr = new Index.User();
+    protected override async Task OnInitializedAsync()
+    {
+        Usr = await Http.GetFromJsonAsync<Index.User>($"/user/{Index.Logado.UserId}");
+    }
+
+    public void logout()
+    {
+        Nav.NavigateTo("/", forceLoad: true);
+    }
+}

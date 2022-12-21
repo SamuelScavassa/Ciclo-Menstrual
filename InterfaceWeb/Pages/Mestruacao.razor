@@ -1,0 +1,49 @@
+@page "/mes/{id}"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<main>
+        <div class="conteudo">
+            <h2>Início mestruação: <span class="data">@Mens.Inicio</span></h2> 
+            <h2>Fim mestruação: <span class="data">@Mens.Fim</span></h2>
+
+            <h2>Fluxo : <span class="data">@Fluxo</span></h2>
+
+            <h2>OBS: <span class="data">@Mens.Observacao</span></h2>
+        </div>
+
+</main>
+
+
+
+@code{
+    [Parameter]
+    public string Id { get; set; }
+    public Index.Mestruacao Mens = new Index.Mestruacao();
+    public string Fluxo {get; set;} 
+
+    protected override async Task OnInitializedAsync()
+    {
+        Mens = await Http.GetFromJsonAsync<Index.Mestruacao>("/mes/"+Id);
+        CalcFluxo();
+    }
+
+    public void CalcFluxo()
+    {
+        
+        if (Mens.Fluxo > 0 && Mens.Fluxo <= 1)
+        {
+            Fluxo = "Baixo";
+        }
+        else{
+            if (Mens.Fluxo > 1 && Mens.Fluxo <= 2){
+            Fluxo = "Médio";
+            }
+            else{
+                Fluxo = "Alto";
+            }
+        }    
+    } 
+
+
+}

@@ -8,8 +8,8 @@
         <h1>@Index.Logado.Nome</h1>
         </div>
         <div class="conteudo">
-            <h2>Próxima mestruação: <span class="data"></span></h2> 
-            <h2><a href="">Ultima mestruação: <span class="data">@Ultima.Inicio.ToString("dd/mm/yyyy")</span></a></h2>
+            <h2>Próxima mestruação: <span class="data">@Proxima</span></h2> 
+            <h2><a href="/mes/@Ultima.MestruacaoId">Ultima mestruação: <span class="data">@Ultima.Inicio</span></a></h2>
 
             <h2>Fluxo padrão: <span class="data">@Fluxo</span></h2>
 
@@ -26,7 +26,7 @@
 
     public static List<Index.Mestruacao> Mestruacaos = new List<Index.Mestruacao>();
     public Index.Mestruacao Ultima = new Index.Mestruacao();
-    public DateTime Proxima {get; set;}
+    public string Proxima {get; set;} = "";
     public string Fluxo {get; set;} = "Inconclusivo";
 
     protected override async Task OnInitializedAsync()
@@ -35,6 +35,7 @@
 
         Ultima = Mestruacaos.Last();
         CalcFluxo();
+        proximaMes();
     }
 
     public void CalcFluxo()
@@ -56,11 +57,24 @@
         }    
     }    
     
-    public void proxima()
+    public void proximaMes()
     {
-        string x = Ultima.Fim.ToString();
+        Proxima = "";
+        string str = Ultima.Inicio;
+        string[] x = str.Split('/');
+        int mes = Convert.ToInt32(x[1]);
+
+        if(mes == 12)
+        {
+            Proxima = x[0] + "/1";
+        }
+        else{
+            Proxima = x[0] + "/" + (mes+1);
+        }
+        
         
     }
+     
 
     public void cadastro()
     {

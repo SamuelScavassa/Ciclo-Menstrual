@@ -12,16 +12,19 @@
 
                 <div class="inputs">
                     <label for="">Início</label>
-                    <input type="date" class="form__field">
-
+                    
+                    <input @bind="Um" class="form__field" placeholder="Dia">
+                    <input @bind="Dois" class="form__field" placeholder="Mês">
+                    
                     <label for="">Fim</label>
-                    <input type="date" class="form__field">
+                    <input @bind="Tres"  class="form__field" placeholder="Dia">
+                    <input @bind="Quatro" class="form__field" placeholder="Mês">
 
                     <label for="">Fluxo (1 - leve / 2 - médio / 3 - forte) </label>
-                    <input type="number" class="form__field">
+                    <input @bind="Fluxo" type="number" class="form__field">
 
                     <label for="">Observação</label>
-                    <input type="text" class="form__field">
+                    <input @bind="Observacao" type="text" class="form__field">
                 </div>
 
                 <div class="div-btn">
@@ -33,8 +36,11 @@
 
 @code{
 
-    public DateTime Inicio { get; set; }
-    public DateTime Fim { get; set; }
+    public int Um { get; set;} 
+    public int Dois { get; set;}
+    public int Tres { get; set;}
+    public int Quatro { get; set;}
+
     public int Fluxo { get; set; }
     public string Observacao { get; set;}
 
@@ -43,8 +49,9 @@
         var x = new Index.Mestruacao{
             MestruacaoId = 0,
             UserId = Index.Logado.UserId,
-            Inicio = Inicio,
-            Fim = Fim,
+            Inicio = Um + "/" + Dois,
+            Fim = Tres + "/" + Quatro,
+            Fluxo = Fluxo,
             Observacao = Observacao
         };
 

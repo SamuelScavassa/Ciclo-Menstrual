@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h4qxehoLaWF0PbRx5QqhEyDMmaQkXy7JxAQ679x5nAzAtEBr6H8t+0F67UdaAXi0eQVqTxym8yNAgZpSBJ1CcA==",
+  "dgSpecHash": "c4RCtxjQPVT2s8q0m35UnMqVO/rk1Wah5kLDyStkvsiHNNr4/KweWG3USShtNI6Fa2+wS8Qz89/YoA6mu1nbCQ==",
   "success": true,
-  "projectFilePath": "/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/InterfaceWeb.csproj",
+  "projectFilePath": "/home/samuel/Documentos/Ciclo-Menstrual/InterfaceWeb/InterfaceWeb.csproj",
   "expectedPackageFiles": [
     "/home/samuel/.nuget/packages/microsoft.aspnetcore.authorization/6.0.2/microsoft.aspnetcore.authorization.6.0.2.nupkg.sha512",
     "/home/samuel/.nuget/packages/microsoft.aspnetcore.components/6.0.2/microsoft.aspnetcore.components.6.0.2.nupkg.sha512",
@@ -33,7 +33,7 @@
     "/home/samuel/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/samuel/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
     "/home/samuel/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512",
-    "/home/samuel/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/6.0.12/microsoft.netcore.app.runtime.mono.browser-wasm.6.0.12.nupkg.sha512"
+    "/home/samuel/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/6.0.11/microsoft.netcore.app.runtime.mono.browser-wasm.6.0.11.nupkg.sha512"
   ],
   "logs": []
 }

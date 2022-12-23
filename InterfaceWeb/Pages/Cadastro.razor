@@ -33,32 +33,29 @@
     protected string Name { get; set; }
     protected string Email { get; set; }
     protected string Password { get; set; }
+    protected bool x {get; set;} 
 
      private async void Save()
     {
-        bool x = true;
         foreach (var item in Index.Lista)
         {
             if (item.Email == Email)
             {
-                x = false;
+                Navigation.NavigateTo("/cadastro", forceLoad: true);
             }
         }
-        if(x){
-            var cliente = new Index.User
-            {
+      
+        var cliente = new Index.User
+        {
                 UserId = 0,
                 Nome = Name,
                 Email = Email,
                 Senha = Password
-            };
+        };
 
-            Http.PostAsJsonAsync<Index.User>("/user", cliente);
-            Navigation.NavigateTo("/");
-        }
-        else{
-            Navigation.NavigateTo("/cadastro", forceLoad: true);
-        }
+        await Http.PostAsJsonAsync<Index.User>("/user", cliente);
+        Navigation.NavigateTo("/");
+       
         
     }
 }

@@ -27,9 +27,9 @@ public class Program
 
         // singleton ou transient
 
-        string strConn = builder.Configuration.GetConnectionString("Banco");
-        builder.Services.AddDbContext<DBCiclo>(option => option.UseSqlServer(strConn));
-        //builder.Services.AddDbContext<DBCiclo>(option => option.UseInMemoryDatabase("db")); // Linux não conecta no SQL Server
+        //string strConn = builder.Configuration.GetConnectionString("Banco");
+        //builder.Services.AddDbContext<DBCiclo>(option => option.UseSqlServer(strConn));
+        builder.Services.AddDbContext<DBCiclo>(option => option.UseInMemoryDatabase("db")); // Linux não conecta no SQL Server
 
 
         WebApplication app = builder.Build();

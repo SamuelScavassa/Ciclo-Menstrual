@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/InterfaceWeb.csproj": {}
+    "/home/samuel/Documentos/Ciclo-Menstrual/InterfaceWeb/InterfaceWeb.csproj": {}
   },
   "projects": {
-    "/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/InterfaceWeb.csproj": {
+    "/home/samuel/Documentos/Ciclo-Menstrual/InterfaceWeb/InterfaceWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/InterfaceWeb.csproj",
+        "projectUniqueName": "/home/samuel/Documentos/Ciclo-Menstrual/InterfaceWeb/InterfaceWeb.csproj",
         "projectName": "InterfaceWeb",
-        "projectPath": "/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/InterfaceWeb.csproj",
+        "projectPath": "/home/samuel/Documentos/Ciclo-Menstrual/InterfaceWeb/InterfaceWeb.csproj",
         "packagesPath": "/home/samuel/.nuget/packages/",
-        "outputPath": "/home/samuel/Documentos/Ciclo Menstrual/InterfaceWeb/obj/",
+        "outputPath": "/home/samuel/Documentos/Ciclo-Menstrual/InterfaceWeb/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/samuel/.nuget/NuGet/NuGet.Config"
@@ -54,15 +54,14 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.12, 6.0.12]"
+              "version": "[6.0.11, 6.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -70,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.111/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
